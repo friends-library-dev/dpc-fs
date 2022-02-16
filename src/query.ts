@@ -42,13 +42,20 @@ function editionToFsDpc(
     customCode: { css: {}, html: {} },
     meta: {
       title: edition.document.title,
+      originalTitle: edition.document.originalTitle ?? undefined,
+      published: edition.document.published ?? undefined,
       isbn: edition.isbn?.code ?? ``,
+      editor: edition.editor ?? undefined,
       author: {
         name: edition.document.friend.name,
         nameSort: edition.document.friend.alphabeticalName,
       },
     },
-    revision: { timestamp: Date.now(), sha: ``, url: `` },
+    revision: {
+      timestamp: Date.now(),
+      sha: ``,
+      url: ``,
+    },
   };
 }
 
